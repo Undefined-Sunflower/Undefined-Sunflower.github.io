@@ -6,16 +6,26 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="https://undefined-sunflower.github.io">
-  <title>Archives | 临安小栈</title>
+  <title>取消事件冒泡、捕获和默认行为 | 临安小栈</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="keywords" content="前端, javascript, css, html5, js框架, css框架">
-<meta property="og:type" content="website">
-<meta property="og:title" content="临安小栈">
-<meta property="og:url" content="https://undefined-sunflower.github.io/archives/index.html">
+  <meta name="description" content="今天翻了下MDN、W3C文档对取消冒泡 捕获的几个方法的描述 感觉真的…..晦涩难懂  (可能是我太菜了吧= =还是决定自己来动手摸索一番Action! 先罗列一下事件对象上的几个方法  e.stopPropagation() e.stopImmediatePropagation() e.preventDefault()  还有当初误导过我的 “万恶之源” : return false;//注:">
+<meta name="keywords" content="前端, javascript, css, html5, js框架, css框架">
+<meta property="og:type" content="article">
+<meta property="og:title" content="取消事件冒泡、捕获和默认行为">
+<meta property="og:url" content="https://undefined-sunflower.github.io/2018/11/26/事件冒泡捕获以及默认行为的取消/index.html">
 <meta property="og:site_name" content="临安小栈">
+<meta property="og:description" content="今天翻了下MDN、W3C文档对取消冒泡 捕获的几个方法的描述 感觉真的…..晦涩难懂  (可能是我太菜了吧= =还是决定自己来动手摸索一番Action! 先罗列一下事件对象上的几个方法  e.stopPropagation() e.stopImmediatePropagation() e.preventDefault()  还有当初误导过我的 “万恶之源” : return false;//注:">
 <meta property="og:locale" content="default">
+<meta property="og:image" content="https://undefined-sunflower.github.io/images/pasted-15.png">
+<meta property="og:image" content="https://undefined-sunflower.github.io/images/pasted-10.png">
+<meta property="og:image" content="https://undefined-sunflower.github.io/images/pasted-12.png">
+<meta property="og:image" content="https://undefined-sunflower.github.io/images/pasted-13.png">
+<meta property="og:image" content="https://undefined-sunflower.github.io/images/pasted-14.png">
+<meta property="og:updated_time" content="2018-11-27T05:55:28.544Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="临安小栈">
+<meta name="twitter:title" content="取消事件冒泡、捕获和默认行为">
+<meta name="twitter:description" content="今天翻了下MDN、W3C文档对取消冒泡 捕获的几个方法的描述 感觉真的…..晦涩难懂  (可能是我太菜了吧= =还是决定自己来动手摸索一番Action! 先罗列一下事件对象上的几个方法  e.stopPropagation() e.stopImmediatePropagation() e.preventDefault()  还有当初误导过我的 “万恶之源” : return false;//注:">
+<meta name="twitter:image" content="https://undefined-sunflower.github.io/images/pasted-15.png">
   
     <link rel="alternative" href="/atom.xml" title="临安小栈" type="application/atom+xml">
   
@@ -151,125 +161,184 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
+            <article id="post-事件冒泡捕获以及默认行为的取消" class="article article-type-post " itemscope="" itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
   
+    <h1 class="article-title" itemprop="name">
+      取消事件冒泡、捕获和默认行为
+    </h1>
   
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2018" class="archive-year">2018</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/11/26/事件冒泡捕获以及默认行为的取消/" class="archive-article-date">
+
+        
+        <a href="/2018/11/26/事件冒泡捕获以及默认行为的取消/" class="archive-article-date">
   	<time datetime="2018-11-26T07:15:37.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-11-26</time>
 </a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/11/26/事件冒泡捕获以及默认行为的取消/">取消事件冒泡、捕获和默认行为</a>
-    </h1>
-  
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><img src="/images/pasted-15.png" alt="upload successful"></p>
+<p>今天翻了下MDN、W3C文档对取消冒泡 捕获的几个方法的描述 <br><br>感觉真的…..晦涩难懂  (可能是我太菜了吧= =<br><br>还是决定自己来动手摸索一番<br><br><strong>Action!</strong></p>
+<p>先罗列一下事件对象上的几个方法</p>
+<ul>
+<li>e.stopPropagation()</li>
+<li>e.stopImmediatePropagation()</li>
+<li>e.preventDefault()</li>
+</ul>
+<p>还有当初误导过我的 “万恶之源” : return false;<br><br>//注:e是事件对象,传入执行函数一个参数e就可以调用 最好写兼容写法 e = window.event||e;<br><br><br>先来说说事件流</p>
+<p><img src="/images/pasted-10.png" alt="upload successful"></p>
+<p>比方说我触发5上面的事件 那事件流就会从window流向5再流回window,途径的节点绑定的事件会触发 <strong>注意:事件源对象上事件执行顺序按定义顺序执行</strong><br></p>
+<p>下面开始测试方法</p>
+<h4 id="demo"><a href="#demo" class="headerlink" title="demo"></a>demo</h4><p>HTML<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;div id=&quot;first&quot;&gt;</span><br><span class="line">    &lt;div id=&quot;second&quot;&gt;</span><br><span class="line">        &lt;div id=&quot;third&quot;&gt;&lt;/div&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">&lt;/div&gt;</span><br></pre></td></tr></table></figure></p>
+<p>CSS<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">div#first&#123;</span><br><span class="line">    background-color: red;</span><br><span class="line">    width: 500px;</span><br><span class="line">    height: 500px;</span><br><span class="line">&#125;</span><br><span class="line">div#second&#123;</span><br><span class="line">    background-color: green;</span><br><span class="line">    width: 400px;</span><br><span class="line">    height: 400px;</span><br><span class="line">&#125;</span><br><span class="line">div#third&#123;</span><br><span class="line">    background-color: yellow;</span><br><span class="line">    width: 200px;</span><br><span class="line">    height: 200px;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>Javascript<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">var div = document.getElementsByTagName(&quot;div&quot;);</span><br><span class="line">div[0].addEventListener(&apos;click&apos;,function(e)&#123;</span><br><span class="line">       console.log(&quot;first&quot;);</span><br><span class="line">&#125;,false);</span><br><span class="line">div[1].addEventListener(&apos;click&apos;,function(e)&#123;</span><br><span class="line">    console.log(&quot;second&quot;);</span><br><span class="line">&#125;,false);</span><br><span class="line">div[2].addEventListener(&apos;click&apos;,function(e)&#123;</span><br><span class="line">    console.log(&quot;third&quot;);</span><br><span class="line">&#125;,false);                  //以上为冒泡              </span><br><span class="line"></span><br><span class="line">div[0].addEventListener(&apos;click&apos;,function(e)&#123;</span><br><span class="line">    console.log(&quot;first!&quot;);</span><br><span class="line">&#125;,true);</span><br><span class="line">div[1].addEventListener(&apos;click&apos;,function(e)&#123;</span><br><span class="line">    console.log(&quot;second!&quot;);</span><br><span class="line">&#125;,true);</span><br><span class="line">div[2].addEventListener(&apos;click&apos;,function(e)&#123;</span><br><span class="line">    console.log(&quot;third!&quot;);</span><br><span class="line">&#125;,true);                   //以上为捕获</span><br></pre></td></tr></table></figure></p>
+<p>1.stopPropagation<br><br><strong>在何处设置,就会在何处阻断事件流往下进行</strong><br><br>eg1.在捕获过程的div[0]设置<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">div[2].addEventListener(&apos;click&apos;,function(e)&#123;</span><br><span class="line">    var e = e||window.event;</span><br><span class="line">    e.stopPropagation();</span><br><span class="line">    console.log(&quot;third!&quot;);</span><br><span class="line">&#125;,true);</span><br></pre></td></tr></table></figure></p>
+<p><img src="/images/pasted-12.png" alt="upload successful"><br>会发现在捕获的第一层执行完 后续就被阻断了。<br><br>eg2.在冒泡过程的div[2]设置<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">div[2].addEventListener(&apos;click&apos;,function(e)&#123;</span><br><span class="line">	var e = e||window.event;</span><br><span class="line">   e.stopPropagation();</span><br><span class="line">   console.log(&quot;third&quot;);</span><br><span class="line">&#125;,false);</span><br></pre></td></tr></table></figure></p>
+<p><img src="/images/pasted-13.png" alt="upload successful"><br>会发现后续冒泡过程被阻断了<strong>(此处third third!出现的顺序和绑定事件的顺序有关)</strong><br><br><br><br>小结:e.stopPropagation()会在设置此方法的事件流执行完后阻断后续.<br><br><br><br><br>2.stopImmediatePropagation<br><strong>除了有stopPropagation的功能 还会阻断当前设置此方法的事件流的顺序后的其他绑定事件</strong> = =有点绕 例子说明吧<br><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">var div = document.getElementsByTagName(&quot;div&quot;);</span><br><span class="line">div[0].addEventListener(&apos;click&apos;,function(e)&#123;</span><br><span class="line">       console.log(&quot;first&quot;);</span><br><span class="line">&#125;,false);</span><br><span class="line">div[1].addEventListener(&apos;click&apos;,function(e)&#123;</span><br><span class="line">    e.stopPropagation();</span><br><span class="line">    console.log(&quot;second&quot;);</span><br><span class="line">&#125;,false);</span><br><span class="line">div[2].addEventListener(&apos;click&apos;,function(e)&#123;</span><br><span class="line">    e.stopPropagation();</span><br><span class="line">    console.log(&quot;third&quot;);</span><br><span class="line">&#125;,false);                  //以上为冒泡              </span><br><span class="line"></span><br><span class="line">div[0].addEventListener(&apos;click&apos;,function(e)&#123;</span><br><span class="line">	  e = e||window.event; </span><br><span class="line">    e.stopImmediatePropagation();</span><br><span class="line">    console.log(&quot;first!&quot;);</span><br><span class="line">&#125;,true);</span><br><span class="line">div[0].addEventListener(&apos;click&apos;,function(e)&#123;</span><br><span class="line"> console.log(&quot;后续绑定的第二个事件&quot;);</span><br><span class="line">       //绑定在div[0]上的另一个事件 绑定在阻断发生之!!!后!!!(这个后很关键)</span><br><span class="line">&#125;,true);</span><br><span class="line">div[1].addEventListener(&apos;click&apos;,function(e)&#123;</span><br><span class="line">    console.log(&quot;second!&quot;);</span><br><span class="line">&#125;,true);</span><br><span class="line">div[2].addEventListener(&apos;click&apos;,function(e)&#123;</span><br><span class="line">    console.log(&quot;third!&quot;);</span><br><span class="line">&#125;,true);                    //以上为捕获</span><br></pre></td></tr></table></figure></p>
+<p><img src="/images/pasted-14.png" alt="upload successful"><br>结果 连当前事件流下的其他事件也被阻断了(但是如果其他事件是在执行阻断函数的事件之前绑定的,则不会被阻断)<br><br><br><br><br>3.preventDefault<br><br>会阻止标签的默认行为<br><br>eg.点击a链接跳转、form表单提交<br><br>IE9以下用event.returnValue = false;<br><br><br><br><br><br>4.return false<br><br>没事别用这玩意!<br><br>没事别用这玩意!<br><br>没事别用这玩意!<br><br>return false相当于同时执行了preventDefault和stopPropagation~_~<br><br>虽然很多教程上来就是return false 看着是简洁 但是给代码留下了隐患…<br></p>
 
-        <div class="article-info info-on-right">
-          
-          
+      
 
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>感谢支持~<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/img/alipay.jpg">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/img/wechat.jpg">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
+        </div>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=https://undefined-sunflower.github.io/2018/11/26/事件冒泡捕获以及默认行为的取消/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/11/26/浅析事件冒泡捕获/" class="archive-article-date">
-  	<time datetime="2018-11-26T03:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-11-26</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2018/11/26/浅析事件冒泡捕获/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">浅析js中的事件冒泡和事件捕获</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
+        
+        
+    </div>
+</aside>
+
+
+
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/11/26/浅析事件冒泡捕获/">浅析js中的事件冒泡和事件捕获</a>
-    </h1>
+  
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">js</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/11/24/判断字符串的方法/" class="archive-article-date">
-  	<time datetime="2018-11-24T10:07:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-11-24</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/11/24/判断字符串的方法/">判断字符串的方法</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">js</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
   
 
-    
+  
 
 
           </div>
@@ -292,8 +361,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
